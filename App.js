@@ -1,10 +1,35 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { FlatList, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
+      {/* <Text>Hello world !!!</Text> */}
+      <View style={styles.nav}>
+        <Text style={styles.nav_text}>Todo</Text>
+      </View>
+      <View style={styles.lists}>
+
+      <Text style={styles.header}>Todo list items</Text>
+
+<FlatList
+      data={[
+        {key:'1 cleaning'},
+        {key:'2 cleaning'},
+        {key:'3 cleaning'},
+        {key:'4 cleaning'},
+        ]}
+        renderItem={({item}) =><Text style={styles.item_list}>{item.key}</Text>
+      }
+        />
+      </View>
+
+<View style={styles.footer}>
+<TextInput style={styles.input} placeholder='enter to do item'/>
+<TouchableOpacity>
+  <Text style={styles.footerbtn}> Add Todo</Text>
+</TouchableOpacity>
+</View>
       <StatusBar style="auto" />
     </View>
   );
@@ -15,6 +40,71 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'top',
+  },
+  nav: {
+    backgroundColor: '#F34D0B',
+    height: "10%",
+    width: "100%",
+    padding: 25,
+    marginTop: 30,
+    justifyContent:'center',
+
+  },
+  nav_text: {
+    fontSize: 20,
+    color: '#fff',
+    textAlign:'right',
+    fontWeight:"bold",
+    fontFamily:'serif',
+    fontSize:20,
+  },
+  lists:{
+    width:"100%",
+    textAlign:'center',
+    justifyContent:'center',
+    marginLeft:"20%",
+  },
+  item_list: {
+    padding:10,
+    fontSize:20,
+    borderStyle:'dotted',
+    borderWidth:3,
+    marginTop:20,
+    width:"80%",
+    textAlign:'center',
+    borderRadius:10,
+    backgroundColor:'#e8e8e8',
+  },
+  footer:{
+justifyContent:'bottom',
+textAlign:'stretch',
+marginTop:"60%",
+marginLeft:"20%",
+width:"100%",
+  },
+  input: {
+borderBottomWidth:3,
+borderRadius:10,
+padding:10,
+fontSize:18,
+width:"60%",
+textAlign:'center',
+  },
+  footerbtn: {
+backgroundColor:'#F34D0B',
+color:'#fff',
+width:"20%",
+padding:10,
+fontSize:11,
+borderRadius:3,
+marginTop:"-10%",
+marginLeft:"60%"
+  },
+  header: {
+fontSize:20,
+fontFamily:'serif',
+fontWeight:"bold",
+marginTop:20,
   },
 });
