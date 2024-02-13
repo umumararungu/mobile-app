@@ -34,7 +34,7 @@ export const styles = StyleSheet.create({
       padding:10,
       fontSize:20,
       borderStyle:'dotted',
-      borderWidth:3,
+      borderWidth:1,
       marginTop:20,
       width:"80%",
       textAlign:'center',
