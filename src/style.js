@@ -29,6 +29,7 @@ export const styles = StyleSheet.create({
       textAlign:'center',
       justifyContent:'center',
       marginLeft:"20%",
+      marginRight:"20%",
     },
     item_list: {
       padding:10,
