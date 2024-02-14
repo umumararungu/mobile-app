@@ -1,6 +1,6 @@
 import { Image, StyleSheet, View,Text } from "react-native";
 import { Icon } from "react-native-elements";
-export default function Login() {
+export default function Img_part() {
 
     return (
         <View style={styles.container}>
