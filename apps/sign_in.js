@@ -1,13 +1,13 @@
 import { StatusBar } from 'expo-status-bar';
 // import Icon from 'react-native-vector-icons/FontAwesome'
-import Ionicons from '@expo/vector-icons/Ionicons';
-import { Button, CheckBox, Icon } from "react-native-elements"
-import { FlatList, StyleSheet, Text, TextInput, TouchableOpacity, View, FontAwesomeIcon } from 'react-native';
+import { TextInput, Checkbox } from 'react-native-paper'
+import { Button, Icon } from "react-native-elements"
+import { FlatList, StyleSheet, Text, TouchableOpacity, View, FontAwesomeIcon } from 'react-native';
 export default function Sign() {
 
     return (
 
-        <View>
+        <View style={styles.container}>
             <View style={styles.header}>
                 <Text style={styles.h1}>Sign In</Text>
                 <Text style={styles.h2}>Welcome back! Please eneter your details</Text>
@@ -15,30 +15,24 @@ export default function Sign() {
 
             <View style={styles.form}>
 
+                <TextInput
+                    style={{ width: "100%", backgroundColor: '#f2f4f5' }}
+                    label='email'
+                    mode='outline'
+                    left={<TextInput.Icon color="#c472b1" icon={"email-outline"} style={{ backgroundColor: '#dbc3d0' }}></TextInput.Icon>}
 
-                <View style={styles.input_div}>
-                    <Icon
-                        name="mail"
-                        type="material"
-                        color="#ed8aed"
-                        size={25}
-                        iconStyle={{ marginRight: 10, padding: 10, backgroundColor: '#f5d0f5', borderRadius: 150 }}
-                    />
-                    <TextInput value='newemail@gmail.com' style={styles.inputs}></TextInput>
-                </View>
+                ></TextInput>
 
-                <View style={styles.input_div}>
+                <TextInput label='password'
+                    secureTextEntry={true}
+                    mode='outline'
+                    style={{ width: "100%", backgroundColor: '#f2f4f5' }}
+                    left={<TextInput.Icon color="#727cc4" icon={"lock-outline"} style={{ backgroundColor: '#c8d1db' }}></TextInput.Icon>}
 
-                    <Icon
-                        name="lock"
-                        type="material"
-                        color="#7893f5"
-                        size={25}
-                        iconStyle={{ marginRight: 10, padding: 10, backgroundColor: '#d0d8f5', borderRadius: 150 }}
-                    />
-                    <TextInput value='newemail@gmail.com' secureTextEntry={true} style={styles.inputs}  ></TextInput>
-                </View>
-                <CheckBox title="Remember me" style={styles.checkbox} />
+                ></TextInput>
+                <Checkbox.Item label="Remember me"
+
+                />
             </View>
 
             <View style={styles.form2}>
@@ -50,7 +44,8 @@ export default function Sign() {
                 </TouchableOpacity>
                 <View style={styles.links}>
                     <Text style={styles.text_left}>Create account</Text>
-                    <Text style={styles.text_right}> Sign in</Text></View>
+                    <Text style={styles.text_right}> Sign in</Text>
+                </View>
             </View>
 
             <View style={styles.footer_icon}>
@@ -59,21 +54,21 @@ export default function Sign() {
                     type="material"
                     color="#2863f7"
                     size={25}
-                    iconStyle={{ marginRight: 10, padding: 10, backgroundColor: '#f5d0f5', borderRadius: 150 }}
+                    iconStyle={{ marginRight: 10, padding: 10, borderRadius: 150 }}
                 />
                 <Icon
                     name="google"
-                    type="material"
-                    color="#ed8aed"
+                    type="font-awesome"
+                    color='#d95e11'
                     size={25}
-                    iconStyle={{ marginRight: 10, padding: 10, backgroundColor: '#f5d0f5', borderRadius: 150 }}
+                    iconStyle={{ marginRight: 10, borderRadius: 10 }}
                 />
                 <Icon
                     name="apple"
                     type="material"
-                    color="#ed8aed"
+                    color="#000"
                     size={25}
-                    iconStyle={{ marginRight: 10, padding: 10, backgroundColor: '#f5d0f5', borderRadius: 150 }}
+                    iconStyle={{ marginRight: 10, padding: 10, borderRadius: 150 }}
                 />
             </View>
         </View>
@@ -82,6 +77,11 @@ export default function Sign() {
 }
 
 const styles = StyleSheet.create({
+    container: {
+        marginLeft: 5,
+        marginRight: 5,
+        width: "100%",
+    },
 
     h1: {
         fontSize: 30,
@@ -106,23 +106,11 @@ const styles = StyleSheet.create({
         margin: 30,
         alignItems: 'flex-start',
     },
-    inputs: {
-        padding: 10,
-        borderRadius: 5,
-        // textAlign: 'center',
-        width: "80%"
-
-
-    },
     form2: {
-        // alignItems: 'center',
-        width: "100%",
         gap: 15,
         marginTop: 100,
-        margin: 40,
-        flexDirection: 'column',
-        display: 'flex',
-        justifyContent: 'center',
+        marginLeft:30,
+
 
     },
     forgot: {
@@ -132,8 +120,8 @@ const styles = StyleSheet.create({
         fontSize: 16,
     },
     btn: {
-        width: "80%",
-        padding: 10,
+        width: "90%",
+        padding: 11,
         borderRadius: 35,
         backgroundColor: '#2DB0DF',
 
@@ -146,29 +134,27 @@ const styles = StyleSheet.create({
         fontFamily: 'serif',
     },
     text_right: {
-        textAlign: 'center',
-        width: "20%",
         fontWeight: 'bold',
         color: '#EC9520',
         backgroundColor: '#FBE9D1',
-        padding: 6,
+        padding: 7,
         borderRadius: 5,
+        marginLeft:40,
 
     },
     text_left: {
-        width: "50%",
         padding: 6,
-
         fontWeight: 'bold',
+        marginLeft:20,
     },
 
     links: {
         width: "100%",
         display: 'flex',
         flexDirection: 'row',
-        gap: 0,
-        justifyContent: 'flex-start',
-        margin: 10,
+        justifyContent:'space-around',
+        marginLeft:"-10%",
+        gap:40
     },
     input_div: {
         display: 'flex',
@@ -181,7 +167,10 @@ const styles = StyleSheet.create({
     footer_icon: {
         display: 'flex',
         flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'center',
         gap: 10,
+        marginTop:30,
 
     },
 
