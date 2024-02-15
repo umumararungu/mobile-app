@@ -6,6 +6,7 @@ import Img_part from './apps/image_part.js'
 import Login from './apps/login.js'
 import Register from './apps/register.js'
 import Home from './apps/home.js'
+// import {NavigationContainer} from '@react-navigation/native';
 export default function App() {
 
   return (

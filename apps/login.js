@@ -129,7 +129,6 @@ gap:10,
     container: {
         width: "100%",
         backgroundColor: '#F5F5F5',
-        height: "100%"
     },
 
 
